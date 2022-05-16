@@ -10,7 +10,7 @@ body{
     text-align: center;
      height: 200px;
 }
-.wrongLetters{
+.wrongLettersBox{
     border-style: double;
     border-width: 1em;
     width: 200px;

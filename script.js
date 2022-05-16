@@ -7,6 +7,9 @@ const letterA = document.querySelector("#A")
 const alphabet = document.querySelectorAll(".letter")
 let inputVal = ''
 console.log(inputVal)
+const wrongLetters = document.querySelector(".wrongLetters")
+let wrongCounter = []
+let 
 
 startButton.addEventListener("click", ()=>{
     inputVal = inputButton.value
@@ -49,6 +52,10 @@ const revealLetter = (e) =>{
                 span.innerText = guessedLetter
             }
         })
+    }else{
+        wrongCounter.push(guessedLetter)
+        wrongLetters.innerText = wrongCounter
+
     }
     // for(let i = 0; i < chars.length; i++){
     //         const hiddenChar = document.createElement("span")

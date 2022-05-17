@@ -8,8 +8,12 @@ const alphabet = document.querySelectorAll(".letter")
 let inputVal = ''
 console.log(inputVal)
 const wrongLetters = document.querySelector(".wrongLetters")
-let wrongCounter = []
-let 
+let wrongCounter = [];
+let winCount = 0;
+console.log(`win count is ${winCount}` )
+let loseCount = 0;
+console.log(`lose count is ${loseCount}`)
+
 
 startButton.addEventListener("click", ()=>{
     inputVal = inputButton.value
@@ -34,15 +38,15 @@ startButton.addEventListener("click", ()=>{
 const hiddenChar = document.createElement("span")
 const revealLetter = (e) =>{
     // inputVal = inputButton.value
-    console.log(inputVal);
+    // console.log(inputVal);
     let chars = inputVal.split("")
-    console.log(chars)
+    // console.log(chars)
     let guessedLetter = e.target.id.toLowerCase()
     console.log(guessedLetter);
     let index = chars.indexOf(guessedLetter)
     if (chars.includes(guessedLetter)){
-        console.log("Letter exists", guessedLetter);
-        console.log(chars.indexOf(guessedLetter));
+        // console.log("Letter exists", guessedLetter);
+        // console.log(chars.indexOf(guessedLetter));
         let underlines = document.querySelectorAll(".input-letters")
         underlines.forEach(span =>{
             console.log("span id: ", typeof span.id);
@@ -50,11 +54,27 @@ const revealLetter = (e) =>{
             if(parseInt(span.id) === index){
                 console.log("Match!");
                 span.innerText = guessedLetter
+                winCount++
+                console.log(winCount)
+                e.target.remove()
+                if(winCount===chars.length){
+                    alert("You won the Game!")
+                }
+                
+
             }
+            
         })
     }else{
         wrongCounter.push(guessedLetter)
         wrongLetters.innerText = wrongCounter
+        loseCount+=1
+        console.log(loseCount)
+        e.target.remove()
+        if(loseCount>=5){
+            alert("Game Over!")
+        }
+        
 
     }
     // for(let i = 0; i < chars.length; i++){

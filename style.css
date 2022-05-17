@@ -60,5 +60,10 @@ body{
     width: 50px;
     border-style: dashed;
     text-align: center;
-    background-color: gray;
+    background-color: rgb(200, 149, 60);
+    color: rgb(242, 242, 242);
+}
+#countdown{
+    font-size: 20px;
+    color:red;
 }

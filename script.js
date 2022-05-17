@@ -15,6 +15,8 @@ let loseCount = 0;
 console.log(`lose count is ${loseCount}`)
 
 
+//-------------START BUTTON----------------------------------------------//
+
 startButton.addEventListener("click", ()=>{
     inputVal = inputButton.value
     let chars = inputVal.split("")
@@ -34,6 +36,25 @@ startButton.addEventListener("click", ()=>{
         hiddenLetter.style.fontSize = "50px";
        
     }
+    const startingMinutes = 1;
+let time = startingMinutes * 60;
+const countdownEl = document.querySelector("#countdown")
+let refreshIntervalid=setInterval(updateCountdown, 1000);
+let once = false;
+ function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10? "0" + seconds : seconds;
+    countdownEl.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+    if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+        alert("Game Over")
+        clearInterval(refreshIntervalid);
+    }
+    once = true;
+
+
+}
 })
 const hiddenChar = document.createElement("span")
 const revealLetter = (e) =>{
@@ -59,6 +80,7 @@ const revealLetter = (e) =>{
                 e.target.remove()
                 if(winCount===chars.length){
                     alert("You won the Game!")
+
                 }
                 
 
@@ -96,3 +118,24 @@ alphabet.forEach(letter=>{
     letter.addEventListener("click", revealLetter)
 })
 
+//-------------------------------TIMER------------------------------------//
+
+// const startingMinutes = 1;
+// let time = startingMinutes * 60;
+// const countdownEl = document.querySelector("#countdown")
+// let refreshIntervalid=setInterval(updateCountdown, 1000);
+// let once = false;
+//  function updateCountdown() {
+//     const minutes = Math.floor(time / 60);
+//     let seconds = time % 60;
+//     seconds = seconds < 10? "0" + seconds : seconds;
+//     countdownEl.innerHTML = `${minutes}: ${seconds}`;
+//     time--;
+//     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+//         alert("Game Over")
+//         clearInterval(refreshIntervalid);
+//     }
+//     once = true;
+
+
+// }

@@ -36,7 +36,7 @@ startButton.addEventListener("click", ()=>{
         hiddenLetter.style.fontSize = "50px";
        
     }
-    const startingMinutes = 1;
+    const startingMinutes = 2;
 let time = startingMinutes * 60;
 const countdownEl = document.querySelector("#countdown")
 let refreshIntervalid=setInterval(updateCountdown, 1000);
@@ -49,6 +49,8 @@ let once = false;
     time--;
     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
         alert("Game Over")
+        clearInterval(refreshIntervalid);
+    }else if (winCount===chars.length){
         clearInterval(refreshIntervalid);
     }
     once = true;
@@ -70,9 +72,9 @@ const revealLetter = (e) =>{
         // console.log(chars.indexOf(guessedLetter));
         let underlines = document.querySelectorAll(".input-letters")
         underlines.forEach(span =>{
-            console.log("span id: ", typeof span.id);
-            console.log("index: ", typeof index);
-            if(parseInt(span.id) === index){
+            // console.log("span id: ", typeof span.id);
+            // console.log("index: ", typeof index);
+            if(chars[parseInt(span.id)] === guessedLetter){
                 console.log("Match!");
                 span.innerText = guessedLetter
                 winCount++

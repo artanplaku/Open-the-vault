@@ -13,19 +13,25 @@ let winCount = 0;
 console.log(`win count is ${winCount}` )
 let loseCount = 0;
 console.log(`lose count is ${loseCount}`)
+const countDown = document.querySelector("#countdown")
 
+let audio = new Audio("./audio/song.mp3");
 
 //-------------START BUTTON----------------------------------------------//
 
 startButton.addEventListener("click", ()=>{
-    inputVal = inputButton.value
-    let chars = inputVal.split("")
+    inputButton.style.display = "none"
+    startButton.style.display = "none"
+    inputVal = inputButton.value;
+    let chars = inputVal.split("");
+    audio.play();
     for(let i=0; i<chars.length;i++){
         const hiddenLetter = document.createElement("span")
         hiddenLetter.classList.add("input-letters")
         hiddenLetter.id = i
         hiddenLetter.innerText = "_"
         hiddenLetter.style.marginRight = "15px"
+        hiddenLetter.style.color = "white"
         // const hiddenChar = document.createElement("p")
         // hiddenLetter.appendChild(hiddenChar)
         // console.log(hiddenLetter)
@@ -82,6 +88,7 @@ const revealLetter = (e) =>{
                 e.target.remove()
                 if(winCount===chars.length){
                     alert("You won the Game!")
+                    audio.pause();
 
                 }
                 
@@ -90,13 +97,16 @@ const revealLetter = (e) =>{
             
         })
     }else{
-        wrongCounter.push(guessedLetter)
-        wrongLetters.innerText = wrongCounter
+        wrongCounter.push(" " + guessedLetter)
+        wrongLetters.innerText = wrongCounter 
+        wrongLetters.style.color = "red"
         loseCount+=1
         console.log(loseCount)
         e.target.remove()
         if(loseCount>=5){
-            alert("Game Over!")
+            alert("Game Over!");
+            countDown.style.display = "none"
+            audio.pause();
         }
         
 
@@ -141,3 +151,23 @@ alphabet.forEach(letter=>{
 
 
 // }
+//--------------------------MODAL--------------------------------------------//
+//Grabbing Elements
+const openBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal')
+const close = document.getElementById('close')
+
+//Functions
+const openModal = () => {
+  modal.style.display = 'block';
+}
+
+const closeModal = () => {
+  modal.style.display = 'none'
+}
+
+//Event Listeners
+openBtn.addEventListener('click', openModal)
+
+close.addEventListener('click', closeModal)
+setTimeout(openModal, 1000);

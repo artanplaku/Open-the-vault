@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
 </head>
 <div class="playerOne">
-    <h1 class="snowMan_Name">Snowman</h1>
+
+
+    <h1 class="snowMan_Name">Save Them</h1>
     <h3 class="enterWordHere">Enter your word here:</h3>
     <input type="text" id="wordInput" name="wordInput">
     <button class="startButton">Start</button>
@@ -16,18 +19,27 @@
 </div>
 <div class="container">
     <div class="image">
-        <h3>Image goes here!</h3>
     </div>
 <div class="guess">
-    <h3>Guess Here!</h3>
+    <h3 class="guessHere">Guess Here!</h3>
     <div class="letters"></div>
     
 </div>
 
 <body>
     <div class="wrongLettersBox">
-        Wrong Letters
+       <h3 class="wrongLettersText">Wrong Letters</h3>
         <div class="wrongLetters"></div>
+        <button id="openModal">About the Game</button>
+        <div id="modal">
+          <div id="modal-textbox">
+            <h1 class="modalTitle">Save Them Tutorial</h1>
+              <p>Welcome to Save Them Tutorial. </p>
+              <div id="modal-footer">
+                <a id="close" href="#">Close</a>
+                </div>
+          </div>
+        </div>
     </div>
 </div>
 <div class="alphabet">
@@ -58,6 +70,7 @@
 <div class="letter" id="Y">Y</div>
 <div class="letter" id="Z">Z</div>
 </div>
+
 
 <script src="script.js"></script>    
 </body>

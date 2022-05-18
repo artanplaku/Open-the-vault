@@ -1,5 +1,5 @@
 body{
-    background-color: #ffe4c4;
+    background-color: #1c381f;
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -9,6 +9,12 @@ body{
     border-width: 1em;
     text-align: center;
      height: 200px;
+}
+.snowMan_Name{
+    color: azure;
+}
+.enterWordHere{
+    color: rgb(159, 131, 90);
 }
 .wrongLettersBox{
     border-style: double;
@@ -20,15 +26,20 @@ body{
     
     
 }
+.wrongLettersText{
+    color: blanchedalmond;
+}
 .container{
     display: flex;
+    /* background-image: url("/imgs/puppy\ jail.gif"); */
 }
 #wordInput{
     /* transform: translate(574px, 43px); */
     color: black;
     text-transform: uppercase
 }
-
+.image{
+}
 
 .startButton{
     /* transform: translate(572px, 43px); */
@@ -42,6 +53,9 @@ body{
     border-width: 1em;
     width: 828px;
     height: 300px;
+}
+.guessHere{
+    color:blanchedalmond
 }
 .image{
     border-style: double;
@@ -58,12 +72,52 @@ body{
 .letter{
     height: 50px;
     width: 50px;
-    border-style: dashed;
+    border-style: solid;
     text-align: center;
-    background-color: rgb(200, 149, 60);
+    background-color: rgb(158, 116, 44);
     color: rgb(242, 242, 242);
+}
+.letter:hover{
+    background-color: white;
+    color: black;
+    margin-bottom: -10px;
 }
 #countdown{
     font-size: 20px;
     color:red;
+}
+.wrongLetters{
+    margin-bottom: -30px;
+}
+#modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
+    display: none;
+}
+#modal-textbox {
+	background-color: white;
+	height: 550px;
+	width: 550px;
+	border-radius: 2px;
+    margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    line-height: 120%;
+}
+#openModal{
+    display: none;
+}
+#modal-footer {
+	text-align: right;
+}
+.modalTitle{
+    padding-bottom: 15px;
 }

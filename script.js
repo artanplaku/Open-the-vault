@@ -1,6 +1,7 @@
 const inputButton = document.querySelector("#wordInput")
 const startButton = document.querySelector(".startButton")
 const guessHere = document.querySelector(".guess")
+const guessHereText = document.querySelector(".guessHere")
 const letters = document.querySelector(".letters")
 let empty = ""
 const letterA = document.querySelector("#A")
@@ -14,6 +15,8 @@ console.log(`win count is ${winCount}` )
 let loseCount = 0;
 console.log(`lose count is ${loseCount}`)
 const countDown = document.querySelector("#countdown")
+const resetButton = document.querySelector(".resetButton")
+const vault = document.querySelector(".rotate")
 
 let audio = new Audio("./audio/song.mp3");
 
@@ -22,6 +25,8 @@ let audio = new Audio("./audio/song.mp3");
 startButton.addEventListener("click", ()=>{
     inputButton.style.display = "none"
     startButton.style.display = "none"
+    resetButton.style.display = "inline-block"
+
     inputVal = inputButton.value;
     let chars = inputVal.split("");
     audio.play();
@@ -54,7 +59,8 @@ let once = false;
     countdownEl.innerHTML = `${minutes}: ${seconds}`;
     time--;
     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
-        alert("Game Over")
+        guessHereText.innerText = "The alarm went off. Game over"
+        guessHereText.style.fontSize = "50px"
         clearInterval(refreshIntervalid);
     }else if (winCount===chars.length){
         clearInterval(refreshIntervalid);
@@ -87,8 +93,11 @@ const revealLetter = (e) =>{
                 console.log(winCount)
                 e.target.remove()
                 if(winCount===chars.length){
-                    alert("You won the Game!")
+                    // alert("You won the Game!")
                     audio.pause();
+                    vault.style.display = "none"
+                    guessHereText.innerText = "Congratulations! You opened the Vault!"
+                    guessHereText.style.fontSize = "50px"
 
                 }
                 
@@ -104,9 +113,10 @@ const revealLetter = (e) =>{
         console.log(loseCount)
         e.target.remove()
         if(loseCount>=5){
-            alert("Game Over!");
             countDown.style.display = "none"
             audio.pause();
+            guessHereText.innerText = "The alarm went off. Game Over!"
+            guessHereText.style.fontSize = "50px"
         }
         
 

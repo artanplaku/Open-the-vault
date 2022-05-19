@@ -21,10 +21,11 @@ body{
     border-width: 1em;
     width: 200px;
     height: 300px;
-   
     text-align: center;
-    
-    
+}
+.resetButton{
+   width: 100px;
+   display: none;
 }
 .wrongLettersText{
     color: blanchedalmond;
@@ -55,8 +56,26 @@ body{
     background-color: rgb(83, 80, 80);
     /* background-image: url("/imgs/vault.img"); */
 }
-img{
+.rotate{
+    position: relative;
     border-radius: 50%;
+    animation: rotation 2s  linear;
+    
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+.gold{
+    filter: brightness(70%);
+    position: absolute;
+    border-radius: 50%;
+    height:300px;
+    width: 300px;
 }
 .alphabet{
     display: flex;
@@ -99,7 +118,7 @@ img{
 }
 #modal-textbox {
 	background-color: white;
-	height: 550px;
+	height: 450px;
 	width: 550px;
 	border-radius: 2px;
     margin: 150px auto;

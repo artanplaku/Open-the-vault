@@ -11,20 +11,24 @@
 <div class="playerOne">
 
 
-    <h1 class="snowMan_Name">Save Them</h1>
+    <h1 class="snowMan_Name">Open the Vault</h1>
     <h3 class="enterWordHere">Enter your word here:</h3>
-    <input type="text" id="wordInput" name="wordInput">
+    <input type="password" id="wordInput" name="wordInput">
     <button class="startButton">Start</button>
+        <button onClick="window.location.reload();" class="resetButton">Reset Game</button>
     <p id="countdown"></p>
+    
 </div>
 <div class="container">
     <div class="image">
+        <img src="./imgs/gold.jpg" class="gold">
         <img src="./imgs/vault.img"
+        class="rotate"
         width="300"
         height="300">
     </div>
 <div class="guess">
-    <h3 class="guessHere">Make Guess Here!</h3>
+    <h3 class="guessHere">Guess Here!</h3>
     <div class="letters"></div>
     
 </div>
@@ -37,7 +41,16 @@
         <div id="modal">
           <div id="modal-textbox">
             <h1 class="modalTitle">Save Them Tutorial</h1>
-              <p>Welcome to Save Them Tutorial. </p>
+              <p>Welcome to Save Them Tutorial. This is a two player game. </p>
+              <p><strong>Player One:</strong> Your job is to write a word that represents the vault password.</p>
+              <p>Your word should follow these guidelines:</p>
+              
+              <li>Keep it at one word</li>
+              <li>Only do letters, no numbers</li>
+              <p><strong>Player Two:</strong> Your job is to guess the word that Player One wrote. Keep in mind that you have 1 min to guess the word and you can make up to 5 mistakes. If you find the word correctly the vault will open and you will have won the game. </p>
+              <p>If you guess the wrong letter, you will see that letter appear in the wrong letters box. Once you have made 5 mistakes the game will be over.</p>
+              <p>The game is also over if the timer goes to 0.</p>
+
               <div id="modal-footer">
                 <a id="close" href="#">Close</a>
                 </div>
@@ -72,8 +85,8 @@
 <div class="letter" id="X">X</div>
 <div class="letter" id="Y">Y</div>
 <div class="letter" id="Z">Z</div>
-</div>
 
+</div>
 
 <script src="script.js"></script>    
 </body>

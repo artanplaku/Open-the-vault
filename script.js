@@ -42,7 +42,7 @@ startButton.addEventListener("click", ()=>{
         hiddenLetter.style.fontSize = "50px";
        
     }
-    const startingMinutes = 2;
+    const startingMinutes = 1;
 let time = startingMinutes * 60;
 const countdownEl = document.querySelector("#countdown")
 let refreshIntervalid=setInterval(updateCountdown, 1000);
@@ -111,19 +111,7 @@ const revealLetter = (e) =>{
         
 
     }
-    // for(let i = 0; i < chars.length; i++){
-    //         const hiddenChar = document.createElement("span")
-    //         console.log(hiddenChar)
-    //         hiddenChar.innerText = chars[i] + " "
-    //         letters.appendChild(hiddenChar)
-    //         hiddenChar.style.fontSize = "50px"
-    //         hiddenChar.style.visibility = "hidden"
-    //         // "visible"
-    //         // "hidden"
-    //         if (chars[i]==("")){
-    //             hiddenChar.style.visibility = "visible"
-    //         }
-    // }
+   
 }
 
 alphabet.forEach(letter=>{
@@ -151,7 +139,7 @@ alphabet.forEach(letter=>{
 
 
 // }
-//--------------------------MODAL--------------------------------------------//
+//-------------------------------------MODAL----------------------------------------//
 //Grabbing Elements
 const openBtn = document.getElementById('openModal');
 const modal = document.getElementById('modal')
@@ -171,3 +159,6 @@ openBtn.addEventListener('click', openModal)
 
 close.addEventListener('click', closeModal)
 setTimeout(openModal, 1000);
+
+
+//----------------------------Rotate Image Animation-------------------------------//

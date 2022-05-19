@@ -31,22 +31,12 @@ body{
 }
 .container{
     display: flex;
-    /* background-image: url("/imgs/puppy\ jail.gif"); */
 }
 #wordInput{
-    /* transform: translate(574px, 43px); */
     color: black;
     text-transform: uppercase
 }
-.image{
-}
 
-.startButton{
-    /* transform: translate(572px, 43px); */
-}
-.enterWordHere{
-    /* transform: translate(588px, 31px); */
-}
 .guess{
     text-align: center;
     border-style: double;
@@ -62,6 +52,11 @@ body{
     border-width: 1em;
     height: 300px;
     width: 300px;
+    background-color: rgb(83, 80, 80);
+    /* background-image: url("/imgs/vault.img"); */
+}
+img{
+    border-radius: 50%;
 }
 .alphabet{
     display: flex;

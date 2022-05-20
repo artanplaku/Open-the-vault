@@ -37,13 +37,7 @@ startButton.addEventListener("click", ()=>{
         hiddenLetter.innerText = "_"
         hiddenLetter.style.marginRight = "15px"
         hiddenLetter.style.color = "white"
-        // const hiddenChar = document.createElement("p")
-        // hiddenLetter.appendChild(hiddenChar)
-        // console.log(hiddenLetter)
-        // hiddenLetter.innerText = "_ "
         letters.appendChild(hiddenLetter)
-        // hiddenLetter.style.height = "5px";
-
         hiddenLetter.style.fontSize = "50px";
        
     }
@@ -51,7 +45,7 @@ startButton.addEventListener("click", ()=>{
 let time = startingMinutes * 60;
 const countdownEl = document.querySelector("#countdown")
 let refreshIntervalid=setInterval(updateCountdown, 1000);
-let once = false;
+// let once = false;
  function updateCountdown() {
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
@@ -70,22 +64,20 @@ let once = false;
 
 }
 })
+//-----------------------------------------------------------------------------------//
+
 const hiddenChar = document.createElement("span")
 const revealLetter = (e) =>{
-    // inputVal = inputButton.value
-    // console.log(inputVal);
+    
     let chars = inputVal.split("")
-    // console.log(chars)
     let guessedLetter = e.target.id.toLowerCase()
     console.log(guessedLetter);
     let index = chars.indexOf(guessedLetter)
     if (chars.includes(guessedLetter)){
-        // console.log("Letter exists", guessedLetter);
-        // console.log(chars.indexOf(guessedLetter));
+       
         let underlines = document.querySelectorAll(".input-letters")
         underlines.forEach(span =>{
-            // console.log("span id: ", typeof span.id);
-            // console.log("index: ", typeof index);
+           
             if(chars[parseInt(span.id)] === guessedLetter){
                 console.log("Match!");
                 span.innerText = guessedLetter
@@ -93,7 +85,7 @@ const revealLetter = (e) =>{
                 console.log(winCount)
                 e.target.remove()
                 if(winCount===chars.length){
-                    // alert("You won the Game!")
+                 
                     audio.pause();
                     vault.style.display = "none"
                     guessHereText.innerText = "Congratulations! You opened the Vault!"
@@ -128,27 +120,7 @@ alphabet.forEach(letter=>{
     letter.addEventListener("click", revealLetter)
 })
 
-//-------------------------------TIMER------------------------------------//
 
-// const startingMinutes = 1;
-// let time = startingMinutes * 60;
-// const countdownEl = document.querySelector("#countdown")
-// let refreshIntervalid=setInterval(updateCountdown, 1000);
-// let once = false;
-//  function updateCountdown() {
-//     const minutes = Math.floor(time / 60);
-//     let seconds = time % 60;
-//     seconds = seconds < 10? "0" + seconds : seconds;
-//     countdownEl.innerHTML = `${minutes}: ${seconds}`;
-//     time--;
-//     if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
-//         alert("Game Over")
-//         clearInterval(refreshIntervalid);
-//     }
-//     once = true;
-
-
-// }
 //-------------------------------------MODAL----------------------------------------//
 //Grabbing Elements
 const openBtn = document.getElementById('openModal');
@@ -169,6 +141,3 @@ openBtn.addEventListener('click', openModal)
 
 close.addEventListener('click', closeModal)
 setTimeout(openModal, 1000);
-
-
-//----------------------------Rotate Image Animation-------------------------------//

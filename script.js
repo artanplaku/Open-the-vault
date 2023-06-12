@@ -5,15 +5,13 @@ const guessHereText = document.querySelector(".guessHere")
 const letters = document.querySelector(".letters")
 let empty = ""
 const letterA = document.querySelector("#A")
-const alphabet = document.querySelectorAll(".letter")
+// const alphabet = document.querySelectorAll(".letter")
 let inputVal = ''
 console.log(inputVal)
 const wrongLetters = document.querySelector(".wrongLetters")
 let wrongCounter = [];
 let winCount = 0;
-console.log(`win count is ${winCount}` )
 let loseCount = 0;
-console.log(`lose count is ${loseCount}`)
 const countDown = document.querySelector("#countdown")
 const resetButton = document.querySelector(".resetButton")
 const vault = document.querySelector(".rotate")
@@ -71,7 +69,6 @@ const revealLetter = (e) =>{
     
     let chars = inputVal.split("")
     let guessedLetter = e.target.id.toLowerCase()
-    console.log(guessedLetter);
     let index = chars.indexOf(guessedLetter)
     if (chars.includes(guessedLetter)){
        
@@ -79,10 +76,8 @@ const revealLetter = (e) =>{
         underlines.forEach(span =>{
            
             if(chars[parseInt(span.id)] === guessedLetter){
-                console.log("Match!");
                 span.innerText = guessedLetter
                 winCount++
-                console.log(winCount)
                 e.target.remove()
                 if(winCount===chars.length){
                  
@@ -115,9 +110,15 @@ const revealLetter = (e) =>{
     }
    
 }
-
+const alphabetDiv = document.getElementById('alphabet-container');
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 alphabet.forEach(letter=>{
-    letter.addEventListener("click", revealLetter)
+    const letterButton = document.createElement('div');
+    letterButton.className = 'letter';
+    letterButton.id = letter;
+    letterButton.textContent = letter;
+    letterButton.addEventListener('click', revealLetter);
+    alphabetDiv.appendChild(letterButton);
 })
 
 
